@@ -1,0 +1,96 @@
+{
+  "api": {
+    "refillapp": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
+  "function": {
+    "myfunc": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "refillapplayer2f7a464c"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "refillapp2893413d": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "refillapplayer2f7a464c": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "LambdaLayer"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_myfunc_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "myfunc"
+        }
+      ]
+    },
+    "AMPLIFY_function_myfunc_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "myfunc"
+        }
+      ]
+    },
+    "AMPLIFY_function_refillapp2893413d_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "refillapp2893413d"
+        }
+      ]
+    },
+    "AMPLIFY_function_refillapp2893413d_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "refillapp2893413d"
+        }
+      ]
+    },
+    "AMPLIFY_function_refillapplayer2f7a464c_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "refillapplayer2f7a464c"
+        }
+      ]
+    },
+    "AMPLIFY_function_refillapplayer2f7a464c_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "refillapplayer2f7a464c"
+        }
+      ]
+    }
+  }
+}
